@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ARTLUM — Where Ideas Shine. Creative design, web development, digital marketing, video editing and IT solutions.">
+<meta name="theme-color" content="#090711">
+<title>ARTLUM | Where Ideas Shine</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#090711;
+  --panel:#151020;
+  --purple:#963cff;
+  --bright:#c18aff;
+  --white:#fff;
+  --muted:#aaa3b7;
+  --line:rgba(178,120,255,.2);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:'DM Sans',sans-serif;overflow-x:hidden
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,90%);margin:auto}
+header{
+  position:fixed;top:0;width:100%;z-index:10;
+  background:rgba(9,7,17,.88);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line)
+}
+nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:800 29px Outfit,sans-serif;letter-spacing:1px}
+.logo span{color:var(--purple)}
+.logo small{display:block;font:600 9px 'DM Sans';letter-spacing:2px;color:var(--bright)}
+.links{display:flex;gap:28px;list-style:none;font-size:13px;color:#ddd}
+.links a:hover{color:var(--bright)}
+.btn{
+  display:inline-block;padding:13px 21px;border-radius:8px;
+  background:linear-gradient(110deg,#7624ce,#ad62ff);
+  color:white;font-size:13px;font-weight:700;
+  transition:.3s;box-shadow:0 0 25px #963cff30
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px #963cff70}
+.outline{background:transparent;border:1px solid var(--line)}
+.menu{display:none;background:none;border:0;color:white;font-size:27px}
+.hero{
+  min-height:760px;display:flex;align-items:center;
+  padding:150px 0 90px;position:relative;overflow:hidden
+}
+.glow{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:#8a26e8;filter:blur(150px);opacity:.24;pointer-events:none
+}
+.g1{right:-130px;top:90px}.g2{left:-200px;bottom:-150px}
+.hero-content{position:relative;z-index:1;max-width:800px;animation:rise 1s ease}
+.eyebrow{
+  display:inline-block;padding:10px 16px;border:1px solid var(--line);
+  background:#963cff12;color:var(--bright);border-radius:30px;
+  font-size:11px;letter-spacing:2px;margin-bottom:28px
+}
+h1{
+  font:800 clamp(48px,8vw,88px)/1.05 Outfit,sans-serif;
+  letter-spacing:-3px;margin-bottom:24px
+}
+.gradient{
+  background:linear-gradient(100deg,#9b49ff,#e0c5ff);
+  color:transparent;background-clip:text;-webkit-background-clip:text
+}
+.lead{max-width:630px;color:var(--muted);font-size:16px;line-height:1.9;margin-bottom:30px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:55px;color:#8e859d;font-size:11px;letter-spacing:2px}
+section{padding:100px 0}
+.section-head{text-align:center;max-width:650px;margin:0 auto 48px}
+.label{color:var(--bright);font-size:11px;letter-spacing:3px;font-weight:700;margin-bottom:14px}
+h2{font:700 clamp(34px,5vw,51px)/1.15 Outfit,sans-serif;margin-bottom:15px}
+.desc{color:var(--muted);font-size:14px;line-height:1.9}
+.services,.about{background:#0e0b17}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  padding:29px 25px;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(145deg,#191326,#100d18);
+  transition:.35s
+}
+.card:hover{transform:translateY(-8px);border-color:var(--purple);box-shadow:0 12px 35px #852be622}
+.icon{
+  width:48px;height:48px;display:grid;place-items:center;
+  border:1px solid var(--line);border-radius:12px;
+  color:var(--bright);background:#963cff18;font-size:22px;margin-bottom:22px
+}
+.card h3{font:600 19px Outfit,sans-serif;margin-bottom:11px}
+.card p{color:var(--muted);font-size:13px;line-height:1.8}
+.project{
+  min-height:240px;padding:26px;border-radius:14px;border:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:radial-gradient(circle at 50% 25%,#59258a,#171020 72%);
+  transition:.3s
+}
+.project:nth-child(2){background:radial-gradient(circle at 50% 25%,#354d85,#111523 72%)}
+.project:nth-child(3){background:radial-gradient(circle at 50% 25%,#793b77,#1b1124 72%)}
+.project:hover{transform:translateY(-6px)}
+.project small{color:#d4aaff;letter-spacing:2px;margin-bottom:10px}
+.project h3{font:700 24px Outfit}
+.note{text-align:center;color:#888093;font-size:12px;margin-top:22px}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.art-box{
+  min-height:340px;border:1px solid var(--line);border-radius:20px;
+  background:radial-gradient(circle,#54217e,#110d19 68%);
+  display:grid;place-items:center;text-align:center
+}
+.art-box strong{font:800 65px Outfit;color:#c18aff;text-shadow:0 0 35px #963cff}
+.art-box span{display:block;font-size:12px;letter-spacing:4px}
+.about-copy p{color:var(--muted);font-size:14px;line-height:1.9;margin:18px 0 25px}
+.contact-box{
+  padding:65px 25px;text-align:center;border:1px solid var(--line);
+  border-radius:20px;background:radial-gradient(ellipse,#35184e,#100c18 70%)
+}
+.contact-box p{color:var(--muted);max-width:530px;margin:15px auto 27px;line-height:1.8;font-size:14px}
+footer{padding:30px 0;border-top:1px solid var(--line);color:#91899e;font-size:12px}
+.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+  .links{
+    display:none;position:absolute;top:78px;left:0;width:100%;
+    padding:25px 5%;background:#100c19;border-bottom:1px solid var(--line);
+    flex-direction:column
+  }
+  .links.open{display:flex}.menu{display:block}
+  nav>.btn{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .about-layout{grid-template-columns:1fr}
+}
+@media(max-width:540px){
+  .grid{grid-template-columns:1fr}
+  section{padding:75px 0}
+  .hero{min-height:680px}
+  h1{letter-spacing:-2px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container">
+    <a href="#home" class="logo">ART<span>LUM</span><small>WHERE IDEAS SHINE</small></a>
+    <button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn" href="#contact">Let's Talk ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="container hero-content">
+    <div class="eyebrow">✦ &nbsp; CREATIVE DIGITAL STUDIO</div>
+    <h1>Where Ideas<br><span class="gradient">Shine Brighter.</span></h1>
+    <p class="lead">Welcome to ARTLUM — where creativity meets technology. We transform ambitious ideas into beautiful designs, powerful digital experiences and meaningful solutions.</p>
+    <div class="actions">
+      <a class="btn" href="#portfolio">Explore Our Work ↗</a>
+      <a class="btn outline" href="#services">Discover Services</a>
+    </div>
+    <div class="hero-note">CREATIVITY &nbsp; • &nbsp; TECHNOLOGY &nbsp; • &nbsp; INNOVATION</div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="label">WHAT WE DO</div>
+      <h2>Creative Services.<br><span class="gradient">Powerful Results.</span></h2>
+      <p class="desc">Creative and digital solutions designed to bring your ideas to life.</p>
+    </div>
+    <div class="grid">
+      <article class="card reveal"><div class="icon">✦</div><h3>Graphic Design</h3><p>Brand identities, logos, social media designs and creative visual content.</p></article>
+      <article class="card reveal"><div class="icon">⌘</div><h3>Web Development</h3><p>Modern, responsive websites with engaging user experiences.</p></article>
+      <article class="card reveal"><div class="icon">◈</div><h3>Digital Marketing</h3><p>Social media strategy, digital campaigns and online brand growth.</p></article>
+      <article class="card reveal"><div class="icon">▶</div><h3>Video Editing</h3><p>Promotional videos, reels, content editing and visual storytelling.</p></article>
+      <article class="card reveal"><div class="icon">▣</div><h3>E-Commerce</h3><p>Online store design, product presentation and shopping experiences.</p></article>
+      <article class="card reveal"><div class="icon">⌘</div><h3>IT & Training</h3><p>Practical IT education, digital skills and technology training.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="label">SELECTED WORK</div>
+      <h2>Ideas Into <span class="gradient">Reality.</span></h2>
+      <p class="desc">A preview of the creative work and projects we will showcase.</p>
+    </div>
+    <div class="grid">
+      <article class="project reveal"><small>01 / BRANDING</small><h3>Visual Identity</h3></article>
+      <article class="project reveal"><small>02 / WEB DESIGN</small><h3>Digital Experiences</h3></article>
+      <article class="project reveal"><small>03 / MEDIA</small><h3>Creative Content</h3></article>
+    </div>
+    <p class="note">Demo portfolio categories. Your actual projects will be added here.</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-layout">
+    <div class="art-box reveal"><div><strong>ARTLUM</strong><span>WHERE IDEAS SHINE</span></div></div>
+    <div class="about-copy reveal">
+      <div class="label">ABOUT THE FOUNDER</div>
+      <h2>Creativity With<br><span class="gradient">A Purpose.</span></h2>
+      <p>ARTLUM is a creative digital brand founded by Ubaid Guzar. With experience in graphic design, digital marketing, web design, video editing, e-commerce and IT education, the vision is to turn ideas into impactful digital experiences.</p>
+      <a href="#contact" class="btn">Connect With Us ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box reveal">
+      <div class="label">LET'S CREATE SOMETHING</div>
+      <h2>Your Idea Deserves<br><span class="gradient">To Shine.</span></h2>
+      <p>Have a project, a creative idea or a question? Get in touch and let's explore what we can create together.</p>
+      <a class="btn" href="mailto:hello@artlum.com">Contact ARTLUM ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div><strong>ARTLUM</strong> — Where Ideas Shine.</div>
+    <div>© <span id="year"></span> ARTLUM. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const menu = document.getElementById('menu');
+const links = document.getElementById('links');
+
+menu.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? '✕' : '☰';
+});
+
+links.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    links.classList.remove('open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.textContent = '☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.12});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
